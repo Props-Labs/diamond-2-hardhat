@@ -1,8 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "./../libraries/AppStorage.sol";
+
 contract Test1Facet {
+    TestStruct internal s;
+
     event TestEvent(address something);
+
+    function getTestValue() external view returns (string memory) {
+        return s.testVar;
+    }
+
+    function setTestValue(string memory newValue) external {
+        s.testVar = newValue;
+    }
 
     function test1Func1() external {}
 

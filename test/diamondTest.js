@@ -93,6 +93,18 @@ describe('DiamondTest', async function () {
     await test1Facet.test1Func10()
   })
 
+  it('should setTestValue', async () => {
+    const test1Facet = await ethers.getContractAt('Test1Facet', diamondAddress)
+    await test1Facet.setTestValue('hello world');
+  })
+
+  it('should getTestValue', async () => {
+    const test1Facet = await ethers.getContractAt('Test1Facet', diamondAddress)
+    let value = await test1Facet.getTestValue()
+    console.log('getTestValue', value);
+
+  })
+
   it('should replace supportsInterface function', async () => {
     const Test1Facet = await ethers.getContractFactory('Test1Facet')
     const selectors = getSelectors(Test1Facet).get(['supportsInterface(bytes4)'])
