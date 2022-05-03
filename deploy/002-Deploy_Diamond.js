@@ -4,7 +4,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
 
     let DiamondCutFacet = await deployments.get('DiamondCutFacet')
 
-    await deploy('Props', {
+    await deploy('Diamond', {
       from: deployer,
       log: true,
       args: [deployer, DiamondCutFacet.address],

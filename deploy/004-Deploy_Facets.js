@@ -29,7 +29,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
         })
       }
 
-      DIAMOND = await deployments.get('Props')
+      DIAMOND = await deployments.get('Diamond')
       DIAMONDINIT = await deployments.get('DiamondInit')
 
       diamondInit = await ethers.getContractAt('DiamondInit', DIAMONDINIT.address);
